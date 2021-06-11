@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  titile: test API document
+  description: test API
+  version: '1.0'
+  title: Sample API specification
+servers:
+  - url: 'http://localhost:3000'
+    description: ''
+paths:
+  /posts.json:
+    get:
+      summary: Post 一覧取得API
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: get-posts
+    parameters: []
+components:
+  schemas:
+    Post:
+      title: Post
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        url:
+          type: string
+      required:
+        - id
+        - title
+        - created_at
+        - updated_at
+        - url
